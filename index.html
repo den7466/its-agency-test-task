@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Colors</title>
+  </head>
+  <body class="page">
+    <header class="header">
+      <div class="container">
+        <div class="header__menu-block">
+          <div class="header__menu-left-block">
+            <a href="/" class="header__logo" title="Перейти на главную">
+              <img class="header__logo-image" src="/logo.svg" alt="COLORS" />
+            </a>
+            <nav class="header__menu">
+              <ul class="header__menu-list">
+                <li class="header__menu-item">
+                  <a href="#" class="header__menu-link">Продукты</a>
+                </li>
+                <li class="header__menu-item">
+                  <a href="#" class="header__menu-link">Цвета</a>
+                </li>
+                <li class="header__menu-item">
+                  <a href="#" class="header__menu-link">Вдохновение</a>
+                </li>
+                <li class="header__menu-item">
+                  <a href="#" class="header__menu-link">Советы</a>
+                </li>
+                <li class="header__menu-item">
+                  <a href="#" class="header__menu-link">Найти магазин</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div class="header__menu-right-block">
+            <div class="header__phone">
+              <a href="tel:+74952217769" class="header__phone-link"
+                >+7 (495) 221-77-69</a
+              >
+              <span class="header__phone-text">Заказать звонок</span>
+            </div>
+            <div class="header__controls">
+              <ul class="header__controls-list">
+                <li class="header__controls-item">
+                  <button
+                    class="header__controls-button header__controls-button_search"
+                  ></button>
+                </li>
+                <li class="header__controls-item">
+                  <button
+                    class="header__controls-button header__controls-button_profile"
+                  ></button>
+                </li>
+                <li class="header__controls-item">
+                  <button
+                    class="header__controls-button header__controls-button_favourites"
+                  ></button>
+                </li>
+                <li class="header__controls-item">
+                  <button
+                    class="header__controls-button header__controls-button_basket"
+                  ></button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="main">
+      <ul class="bread-crumbs">
+        <li class="bread-crumbs__item">
+          <a href="#" class="bread-crumbs__link">Главная</a>
+        </li>
+        <li class="bread-crumbs__item">
+          <a href="#" class="bread-crumbs__link">Продукты</a>
+        </li>
+        <li class="bread-crumbs__item">
+          <a href="#" class="bread-crumbs__link">Краски</a>
+        </li>
+      </ul>
+      <div class="slider-block">
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+              <img class="swiper-image" src="/images/image1.jpg" alt="" />
+              <h1 class="swiper-title">Краски</h1>
+              <p class="swiper-text">
+                Идеально подходят для стен и других поверхностей.<br />Найди
+                свой идеальный цвет!
+              </p>
+            </div>
+            <div class="swiper-slide">
+              <img class="swiper-image" src="/images/image1.jpg" alt="" />
+              <h1 class="swiper-title">Краски</h1>
+              <p class="swiper-text">
+                Идеально подходят для стен и других поверхностей.<br />Найди
+                свой идеальный цвет!
+              </p>
+            </div>
+            <div class="swiper-slide">
+              <img class="swiper-image" src="/images/image1.jpg" alt="" />
+              <h1 class="swiper-title">Краски</h1>
+              <p class="swiper-text">
+                Идеально подходят для стен и других поверхностей.<br />Найди
+                свой идеальный цвет!
+              </p>
+            </div>
+            <div class="swiper-slide">
+              <img class="swiper-image" src="/images/image1.jpg" alt="" />
+              <h1 class="swiper-title">Краски</h1>
+              <p class="swiper-text">
+                Идеально подходят для стен и других поверхностей.<br />Найди
+                свой идеальный цвет!
+              </p>
+            </div>
+            <div class="swiper-slide">
+              <img class="swiper-image" src="/images/image1.jpg" alt="" />
+              <h1 class="swiper-title">Краски</h1>
+              <p class="swiper-text">
+                Идеально подходят для стен и других поверхностей.<br />Найди
+                свой идеальный цвет!
+              </p>
+            </div>
+            <div class="swiper-slide">
+              <img class="swiper-image" src="/images/image1.jpg" alt="" />
+              <h1 class="swiper-title">Краски</h1>
+              <p class="swiper-text">
+                Идеально подходят для стен и других поверхностей.<br />Найди
+                свой идеальный цвет!
+              </p>
+            </div>
+          </div>
+          <!-- If we need pagination -->
+          <div class="swiper-pagination"></div>
+
+          <!-- If we need navigation buttons -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      </div>
+      <div class="container">
+        <section class="catalog">
+          <aside class="catalog__filter filter">
+            <form id="filter" class="filter__form">
+              <ul class="filter__list">
+                <li class="filter__item">
+                  <label>
+                    <input
+                      class="filter__checkbox visually-hidden"
+                      type="checkbox"
+                      name="new"
+                      id="new"
+                    />
+                    <span></span>
+                  </label>
+                  Новинки
+                </li>
+                <li class="filter__item">
+                  <label>
+                    <input
+                      class="filter__checkbox visually-hidden"
+                      type="checkbox"
+                      name="in-stock"
+                      id="stock"
+                    />
+                    <span></span>
+                  </label>
+                  Есть в наличии
+                </li>
+                <li class="filter__item">
+                  <label>
+                    <input
+                      class="filter__checkbox visually-hidden"
+                      type="checkbox"
+                      name="contractual"
+                      id="contractual"
+                    />
+                    <span></span>
+                  </label>
+                  Контрактные
+                </li>
+                <li class="filter__item">
+                  <label>
+                    <input
+                      class="filter__checkbox visually-hidden"
+                      type="checkbox"
+                      name="exclusive"
+                      id="exclusive"
+                    />
+                    <span></span>
+                  </label>
+                  Эксклюзивные
+                </li>
+                <li class="filter__item">
+                  <label>
+                    <input
+                      class="filter__checkbox visually-hidden"
+                      type="checkbox"
+                      name="sale"
+                      id="sale"
+                    />
+                    <span></span>
+                  </label>
+                  Распродажа
+                </li>
+              </ul>
+            </form>
+          </aside>
+          <div class="catalog__content">
+            <div class="catalog__controls">
+              <span class="catalog__counter">412 товаров</span>
+              <form class="catalog__controls-form" id="controls-form">
+                <select class="catalog__select" name="sort" id="sort">
+                  <option value="dear">Сначала дорогие</option>
+                  <option value="inexpensive">Сначала недорогие</option>
+                  <option value="popular">Сначала популярные</option>
+                  <option value="new">Сначала новые</option>
+                </select>
+              </form>
+            </div>
+            <ul class="catalog__list">
+              <li class="catalog__item">
+                <article class="catalog__card card">
+                  <img class="card__image" src="/images/catalog0.jpg" alt="" />
+                  <a href="#" class="card__title">Краска Wallquest, Brownsone MS90102</a>
+                  <span class="card__price">6000 ₽</span>
+                </article>
+              </li>
+              <li class="catalog__item">
+                <article class="catalog__card card">
+                  <img class="card__image" src="/images/catalog1.jpg" alt="" />
+                  <a href="#" class="card__title">Краска Wallquest, Brownsone MS90102</a>
+                  <span class="card__price">4800 ₽</span>
+                </article>
+              </li>
+              <li class="catalog__item">
+                <article class="catalog__card card">
+                  <img class="card__image" src="/images/catalog2.jpg" alt="" />
+                  <a href="#" class="card__title">Краска Wallquest, Brownsone MS90102</a>
+                  <span class="card__price">5290 ₽</span>
+                </article>
+              </li>
+              <li class="catalog__item">
+                <article class="catalog__card card">
+                  <img class="card__image" src="/images/catalog3.jpg" alt="" />
+                  <a href="#" class="card__title">Краска Wallquest, Brownsone MS90102</a>
+                  <span class="card__price">2800 ₽</span>
+                </article>
+              </li>
+              <li class="catalog__item">
+                <article class="catalog__card card">
+                  <img class="card__image" src="/images/catalog4.jpg" alt="" />
+                  <a href="#" class="card__title">Краска Wallquest, Brownsone MS90102</a>
+                  <span class="card__price">3400 ₽</span>
+                </article>
+              </li>
+              <li class="catalog__item">
+                <article class="catalog__card card">
+                  <img class="card__image" src="/images/catalog5.jpg" alt="" />
+                  <a href="#" class="card__title">Краска Wallquest, Brownsone MS90102</a>
+                  <span class="card__price">6000 ₽</span>
+                </article>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer class="footer"></footer>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
