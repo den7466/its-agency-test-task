@@ -145,7 +145,6 @@
       <div class="container">
         <section class="catalog">
           <aside class="catalog__filter filter">
-            <form id="filter" class="filter__form">
               <ul class="filter__list">
                 <li class="filter__item">
                   <label>
@@ -208,69 +207,35 @@
                   Распродажа
                 </li>
               </ul>
-            </form>
           </aside>
           <div class="catalog__content">
             <div class="catalog__controls">
               <span class="catalog__counter">412 товаров</span>
-              <form class="catalog__controls-form" id="controls-form">
-                <select class="catalog__select" name="sort" id="sort">
-                  <option value="dear">Сначала дорогие</option>
-                  <option value="inexpensive">Сначала недорогие</option>
-                  <option value="popular">Сначала популярные</option>
-                  <option value="new">Сначала новые</option>
-                </select>
-              </form>
+              <div class="catalog__custom-select custom-select">
+                <div class="custom-select_selected" data-selected="dear">Сначала дорогие</div>
+                <div class="custom-select__items custom-select_hide">
+                  <div class="custom-select__same-as-selected" data-value="dear">Сначала дорогие</div>
+                  <div data-value="inexpensive">Сначала недорогие</div>
+                  <div data-value="popular">Сначала популярные</div>
+                  <div data-value="new">Сначала новые</div>
+                </div>
+              </div>
             </div>
-            <ul class="catalog__list">
-              <li class="catalog__item">
-                <article class="catalog__card card">
-                  <img class="card__image" src="./images/catalog0.jpg" alt="" />
-                  <a href="#" class="card__title">Краска Wallquest, Brownsone MS90102</a>
-                  <span class="card__price">6000 ₽</span>
-                </article>
-              </li>
-              <li class="catalog__item">
-                <article class="catalog__card card">
-                  <img class="card__image" src="./images/catalog1.jpg" alt="" />
-                  <a href="#" class="card__title">Краска Wallquest, Brownsone MS90102</a>
-                  <span class="card__price">4800 ₽</span>
-                </article>
-              </li>
-              <li class="catalog__item">
-                <article class="catalog__card card">
-                  <img class="card__image" src="./images/catalog2.jpg" alt="" />
-                  <a href="#" class="card__title">Краска Wallquest, Brownsone MS90102</a>
-                  <span class="card__price">5290 ₽</span>
-                </article>
-              </li>
-              <li class="catalog__item">
-                <article class="catalog__card card">
-                  <img class="card__image" src="./images/catalog3.jpg" alt="" />
-                  <a href="#" class="card__title">Краска Wallquest, Brownsone MS90102</a>
-                  <span class="card__price">2800 ₽</span>
-                </article>
-              </li>
-              <li class="catalog__item">
-                <article class="catalog__card card">
-                  <img class="card__image" src="./images/catalog4.jpg" alt="" />
-                  <a href="#" class="card__title">Краска Wallquest, Brownsone MS90102</a>
-                  <span class="card__price">3400 ₽</span>
-                </article>
-              </li>
-              <li class="catalog__item">
-                <article class="catalog__card card">
-                  <img class="card__image" src="./images/catalog5.jpg" alt="" />
-                  <a href="#" class="card__title">Краска Wallquest, Brownsone MS90102</a>
-                  <span class="card__price">6000 ₽</span>
-                </article>
-              </li>
-            </ul>
+            <ul class="catalog__list"></ul>
           </div>
         </section>
       </div>
     </main>
     <footer class="footer"></footer>
+    <template id="card-template">
+      <li class="catalog__item">
+        <article class="catalog__card card">
+          <img class="card__image" src="" alt="" />
+          <a href="#" class="card__title"></a>
+          <span class="card__price"></span>
+        </article>
+      </li>
+    </template>
     <script type="module" src="./src/main.js"></script>
   </body>
 </html>
