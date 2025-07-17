@@ -60,7 +60,7 @@
                 </li>
                 <li class="header__controls-item">
                   <button
-                    class="header__controls-button header__controls-button_basket"
+                    class="header__controls-button header__controls-button_basket header__controls-button_basket-not-empty"
                   ></button>
                 </li>
               </ul>
@@ -227,12 +227,59 @@
       </div>
     </main>
     <footer class="footer"></footer>
+    <div class="overlay" id="basket">
+      <div class="modal">
+        <div class="modal__header">
+          <h2 class="modal__title">Корзина</h2>
+          <button class="modal__button-close"></button>
+        </div>
+        <div class="basket">
+          <div>
+            <div class="basket__header">
+              <span class="basket__counter">0 товаров</span>
+              <button class="basket__clear-button">очистить список</button>
+            </div>
+            <ul class="basket__list"></ul>
+          </div>
+          <div class="basket__footer">
+            <div class="basket__total-block">
+              <span class="basket__total-title">Итого</span>
+              <span class="basket__total">0</span>
+            </div>
+            <button class="basket__button-submit">Оформить заказ</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <template id="card-template">
       <li class="catalog__item">
         <article class="catalog__card card">
           <img class="card__image" src="" alt="" />
           <a href="#" class="card__title"></a>
-          <span class="card__price"></span>
+          <div class="card__controls">
+            <span class="card__price"></span>
+            <button class="card__button"></button>
+          </div>
+        </article>
+      </li>
+    </template>
+    <template id="basket-template">
+      <li class="basket__item">
+        <article class="basket__card">
+          <img class="basket__image" src="" alt="">
+          <div class="basket__info">
+            <a href="#" class="basket__title"></a>
+            <span class="basket__price"></span>
+          </div>
+          <div class="basket__controls">
+            <div class="basket__item-counter-block">
+              <button class="basket__item-counter-button basket__item-counter-button_minus"></button>
+              <span class="basket__item-counter">0</span>
+              <button class="basket__item-counter-button basket__item-counter-button_plus"></button>
+            </div>
+            <button class="basket__item-delete-button"></button>
+            <button class="basket__item-restore-button"></button>
+          </div>
         </article>
       </li>
     </template>
