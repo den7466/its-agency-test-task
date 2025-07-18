@@ -49,11 +49,13 @@ export class BasketModel {
           return item;
         }
       });
+      localStorage.setItem('basket', JSON.stringify(this._basketData));
     } else {
       data.count = 1;
       data.total = data.price * data.count;
       data.deleted = false;
       this._basketData.push(data);
+      localStorage.setItem('basket', JSON.stringify(this._basketData));
     }
     this._total = this.calculateBasketTotal(this._basketData);
   }
@@ -70,6 +72,7 @@ export class BasketModel {
           return item;
         }
       });
+      localStorage.setItem('basket', JSON.stringify(this._basketData));
     }
   }
 
@@ -82,6 +85,7 @@ export class BasketModel {
         return item;
       }
     });
+    localStorage.setItem('basket', JSON.stringify(this._basketData));
   }
 
   restoreFromBasketData(id) {
@@ -93,10 +97,12 @@ export class BasketModel {
         return item;
       }
     });
+    localStorage.setItem('basket', JSON.stringify(this._basketData));
   }
 
   clearBasketData() {
     this._basketData = [];
     this._total = 0;
+    localStorage.setItem('basket', JSON.stringify(this._basketData));
   }
 }
