@@ -16,50 +16,30 @@ const basketTemplate = document.querySelector('#basket-template').content;
 const catalogList = document.querySelector('.catalog__list');
 const basketList = document.querySelector('.basket__list');
 const basketModalOverlay = document.querySelector('#basket');
-const basketModal = basketModalOverlay.querySelector('.modal');
+const basketModal = basketModalOverlay.querySelector('.basket-modal');
+const filtersModalOverlay = document.querySelector('#filters');
+const filtersModal = filtersModalOverlay.querySelector('.filters-modal');
+const filtersOpenButton = document.querySelector('.mobile__filters-button');
+const filtersCloseButton = filtersModal.querySelector('.filters-modal__close-button');
 const basketCounter = basketModal.querySelector('.basket__counter');
 const basketTotal = basketModal.querySelector('.basket__total');
 const basketClearButton = basketModal.querySelector('.basket__clear-button');
 const basketSubmitButton = basketModal.querySelector('.basket__button-submit');
-const modalCloseButton = document.querySelector('.modal__button-close');
-const filterList = document.querySelector('.filter__list');
-const filterItems = filterList.querySelectorAll('.filter__checkbox');
+const modalCloseButton = basketModal.querySelector('.modal__button-close');
+const filterMainList = document.querySelector('#main-filters');
+const filterMainItems = filterMainList.querySelectorAll('.filter__checkbox');
+const filterModalList = filtersModal.querySelector('#modal-filters');
+const filterModalItems = filterModalList.querySelectorAll('.filter__checkbox');
 const basketButton = document.querySelector('.header__controls-button_basket');
 const catalogCounter = document.querySelector('.catalog__counter');
-const catalogModel = new CatalogModel(await getAllCards());
-const basketData = new BasketModel([
-  {
-    "title": "Краска Wallquest, Brownsone MS90102",
-    "imageUrl": "./images/catalog1.jpg",
-    "imageAlt": "imageAlt 1",
-    "tags": [
-      "new"
-    ],
-    "price": 6000,
-    "rating": 0,
-    "id": "1",
-    "count": 2,
-    "total": 12000,
-    "deleted": true
-  },
-  {
-    "title": "Краска Wallquest, Brownsone MS90102",
-    "imageUrl": "./images/catalog2.jpg",
-    "imageAlt": "imageAlt 2",
-    "tags": [
-      "new"
-    ],
-    "price": 4800,
-    "rating": 60,
-    "id": "2",
-    "count": 1,
-    "total": 4800,
-    "deleted": false
-  },
-]);
-
+const mobileMenuOpenButton = document.querySelector('.mobile__menu-button');
+const mobileMenuOverlay = document.querySelector('#mobile-menu');
+const mobileMenuModal = mobileMenuOverlay.querySelector('.mobile-menu');
+const mobileMenuCloseButton = mobileMenuModal.querySelector('.modal__button-close');
 let filters = [];
 let sort = 'dear';
+const catalogModel = new CatalogModel(await getAllCards());
+const basketData = new BasketModel(JSON.parse(localStorage.getItem('basket')) || []);
 
 const basketItemMinusHandler = (id) => {
   basketData.deleteFromBasketData(id);
@@ -144,33 +124,97 @@ const selectHandler = (element) => {
 };
 
 const openBasketModalHandler = () => {
+  document.body.classList.add('no-scroll');
   basketModalOverlay.classList.add('overlay_open');
-  basketModal.classList.add('modal_open');
+  basketModal.classList.add('basket-modal_open');
   basketView.render(basketData.basketData);
 };
 
 const closeModalHandler = (e) => {
+  document.body.classList.remove('no-scroll');
   const modal = e.target.parentNode.parentNode;
   const overlay = modal.parentNode;
-  modal.classList.remove('modal_open');
+  modal.classList.remove('basket-modal_open');
   overlay.classList.remove('overlay_open');
   renderPageHandler();
 };
 
-filterItems.forEach(input => {
+const closeBasketModalOverlayHandler = (e) => {
+  if(e.target.classList.contains('overlay')) {
+    document.body.classList.remove('no-scroll');
+    basketModal.classList.remove('basket-modal_open');
+    e.target.classList.remove('overlay_open');
+    renderPageHandler();
+  }
+};
+
+const openFiltersModalHandler = () => {
+  document.body.classList.add('no-scroll');
+  filtersModalOverlay.classList.add('overlay_open');
+  filtersModal.classList.add('filters-modal_open');
+};
+
+const closeFiltersModalHandler = () => {
+  document.body.classList.remove('no-scroll');
+  filtersModalOverlay.classList.remove('overlay_open');
+  filtersModal.classList.remove('filters-modal_open');
+}
+
+const closeFiltersModalOverlayHandler = (e) => {
+  if(e.target.classList.contains('overlay')) {
+    document.body.classList.remove('no-scroll');
+    filtersModal.classList.remove('filters-modal_open');
+    e.target.classList.remove('overlay_open');
+    renderPageHandler();
+  }
+};
+
+const openMobileMenuHandler = () => {
+  document.body.classList.add('no-scroll');
+  mobileMenuOverlay.classList.add('overlay_open');
+  mobileMenuModal.classList.add('mobile-menu_open');
+};
+
+const closeMobileMenuHandler = () => {
+  document.body.classList.remove('no-scroll');
+  mobileMenuOverlay.classList.remove('overlay_open');
+  mobileMenuModal.classList.remove('mobile-menu_open');
+};
+
+const closeMobileMenuOverlayHandler = (e) => {
+  if(e.target.classList.contains('overlay')) {
+    document.body.classList.remove('no-scroll');
+    mobileMenuModal.classList.remove('mobile-menu_open');
+    e.target.classList.remove('overlay_open');
+    renderPageHandler();
+  }
+};
+
+filterMainItems.forEach(input => {
   input.addEventListener('change', filtersHandler);
 });
 
-customSelectInit(selectHandler);
+filterModalItems.forEach(input => {
+  input.addEventListener('change', filtersHandler);
+});
+
 basketButton.addEventListener('click', openBasketModalHandler);
 modalCloseButton.addEventListener('click', closeModalHandler);
+basketModalOverlay.addEventListener('click', closeBasketModalOverlayHandler);
+filtersOpenButton.addEventListener('click', openFiltersModalHandler);
+filtersCloseButton.addEventListener('click', closeFiltersModalHandler);
+filtersModalOverlay.addEventListener('click', closeFiltersModalOverlayHandler);
+mobileMenuOpenButton.addEventListener('click', openMobileMenuHandler);
+mobileMenuCloseButton.addEventListener('click', closeMobileMenuHandler);
+mobileMenuOverlay.addEventListener('click', closeMobileMenuOverlayHandler);
 
+customSelectInit(selectHandler);
 renderPageHandler();
 renderCatalogHandler({ filters, sort});
 
 // init Swiper:
 new Swiper('.swiper', {
-  loop: true,
+  // loop: true,
   spaceBetween: 30,
   centeredSlides: true,
   autoplay: {
